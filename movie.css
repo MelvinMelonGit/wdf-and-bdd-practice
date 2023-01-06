@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@200;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main {  
+    width: 70vw;
+    text-align: center;
+    min-height: 100vh;
+}
+
+ul {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    padding: 1rem;
+}
+
+.movie-card {
+    border: 2px solid grey;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    width: 20rem;
+}
+
+.movie-card:hover {
+    border: 2px solid blue;
+}
+
+.movie-card.selected {
+    border: 2px solid red;
+}
+
+.movie-card img {
+    border-radius: 0.5rem;
+    height: 20rem;
+}
+
+.movie-card li {
+    list-style-type: none;
+}
+
+.movie-card button {
+    background: #018fbe;
+    color: #fff;
+    margin-top: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+}
+
+a {
+    font-weight: 700;
+}
+
+.add-movie {
+    display: flex;
+    flex-direction: column;
+    background: #aee4f6;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.add-movie label {
+    margin: 0.5rem;
+}
+
+.add-movie input {
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+}
+
+.add-movie button {
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    background: #084052;
+    color: #fff;
+}
+
+.filter-movie {
+    background: #018fbe;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.filter-movie button {
+    margin: auto;
+    margin-left: 1rem;
+    padding: 1rem;
+    border-color: none;
+    border-radius: 0.3rem;
+}
+
+.remove-movie {
+    padding: 1rem;
+    background: #c62848;
+    border-radius: 0.5rem;
+    border-color: #fff;
+    color: #fff;
+}
+
+.remove-movie:disabled {
+    opacity: 0.6;
+}
