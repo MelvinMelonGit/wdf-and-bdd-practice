@@ -30,13 +30,8 @@ export default function LoginForm(props) {
         };
     
         fetch('http://localhost:8081/user/login/', options)
-            .then(response => {
-                response.json()}
-                )
-            .then(data => {
-                console.log(data);
-                // Do something with response.
-            })
+            .then(response => response.json())
+            .then(data => console.log(data["JWT"]));
     }
     
 
@@ -60,11 +55,11 @@ export default function LoginForm(props) {
                     onChange={handleChange}
                 />
             </label>
-            <input
+            <button
                 type="submit"
             >
                 Sign In
-            </input>
+            </button>
         </form>
     );
 }

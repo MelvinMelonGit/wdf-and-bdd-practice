@@ -23,14 +23,8 @@ export default function LoginForm(props) {
         'Content-type': 'application/json; charset=UTF-8'
       }
     };
-    fetch('http://localhost:8081/user/login/', options).then(response => {
-      response.json();
-    }).then(data => {
-      console.log(data);
-      // Do something with response.
-    });
+    fetch('http://localhost:8081/user/login/', options).then(response => response.json()).then(data => console.log(data["JWT"]));
   }
-
   return /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/React.createElement("label", null, "Email:", /*#__PURE__*/React.createElement("input", {
@@ -43,7 +37,7 @@ export default function LoginForm(props) {
     name: "password",
     value: loginFields.password,
     onChange: handleChange
-  })), /*#__PURE__*/React.createElement("input", {
+  })), /*#__PURE__*/React.createElement("button", {
     type: "submit"
   }, "Sign In"));
 }
