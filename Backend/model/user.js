@@ -29,18 +29,24 @@ var userDB = {
         
                         var msg="{\"result\":\""+result.length+"\"}";               
                         
-
-                        var token="";
-                        console.log(result.length);
+                        //created data object for frontend consumption
+                        var data={
+                            token: "",
+                            userid: result[0].userID,
+                            role: result[0].role,
+                            expiresIn: 43200
+                        };
 
                         if(result.length==1) {
-                            token=jwt.sign({"userid":result[0].userID,"role":result[0].role}, config.secretKey, {expiresIn:43200});
+                            data.token=jwt.sign({"userid":data.userid,"role": data.role}, config.secretKey, {expiresIn: data.expiresIn});
                             console.log("logged in");
                         }
 
                         msg={"Login": "Success"};
 
-                        return callback(null, token);
+                        console.log(result.length, data);
+
+                        return callback(null, data);
                         
         
                     }

@@ -31,7 +31,18 @@ export default function LoginForm(props) {
     
         fetch('http://localhost:8081/user/login/', options)
             .then(response => response.json())
-            .then(data => console.log(data["JWT"]));
+            .then(data => {   
+                if (data.role != "admin") {
+                    console.log("Unauthorized user");
+                } else {
+                    console.log(data);
+                    if (data.token) {
+                        localStorage.setItem("jwtExists", true);
+                        props.onLoginButtonPressed();
+                    }
+                }
+            }
+            );
     }
     
 

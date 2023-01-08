@@ -34,7 +34,9 @@ app.post('/user/login', validationFn.validateUser, function (req, res) {
         } else {
             res.status(200);
             res.type('json');
-            res.send(`{"JWT":"${results}"}`);
+            //res.send(`{"Data":"${results}"}`);
+            //data is an object instead of string, so stringify is needed
+            res.send(JSON.stringify(results));
         }
 
     });

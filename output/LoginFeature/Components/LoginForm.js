@@ -23,7 +23,17 @@ export default function LoginForm(props) {
         'Content-type': 'application/json; charset=UTF-8'
       }
     };
-    fetch('http://localhost:8081/user/login/', options).then(response => response.json()).then(data => console.log(data["JWT"]));
+    fetch('http://localhost:8081/user/login/', options).then(response => response.json()).then(data => {
+      if (data.role != "admin") {
+        console.log("Unauthorized user");
+      } else {
+        console.log(data);
+        if (data.token) {
+          localStorage.setItem("jwtExists", true);
+          props.onLoginButtonPressed();
+        }
+      }
+    });
   }
   return /*#__PURE__*/React.createElement("form", {
     onSubmit: handleSubmit
